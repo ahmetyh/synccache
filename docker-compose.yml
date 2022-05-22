@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - 8080-8083:8080
+    depends_on:
+      - rabbitmq
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - 5672:5672
+      - 15672:15672
